@@ -1,0 +1,3 @@
+// Stub file
+module.exports = {
+}
