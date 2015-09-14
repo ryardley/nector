@@ -57,9 +57,12 @@ function createNector(endpoint, httpBackend){
 
   function createServer(store, connect){
     connect = connect || express;
+
     const app = connect();
+
     // provide store so that we can use this as a location
     app.store = Object.assign({}, store, {endpoint});
+
     app.use(`${endpoint}/:key`, (req, res) => {
       const key = req.params.key;
       const urlParts = url.parse(req.url, true);
@@ -71,6 +74,7 @@ function createNector(endpoint, httpBackend){
           res.send(data);
         });
     });
+
     return app;
   }
   return {endpoint, createServer, createClient};
