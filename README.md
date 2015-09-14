@@ -1,3 +1,3 @@
 # Nector
 
-Coming soon
+Coming soon. This is a project stub.
