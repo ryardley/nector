@@ -1,3 +1,6 @@
+
+![Build Status](https://travis-ci.org/ryardley/nector.svg)
+
 # Nector
 
 A promise driven functional transport layer for isomorphic apps.
