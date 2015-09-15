@@ -7,8 +7,8 @@
     "test": "mocha --compilers js:babel/register",
     "build": "babel ./src --out-dir ./dist",
     "clean": "rm -rf ./dist",
-    "version": "npm version patch && git push -f --tags",
-    "prepublish": "npm run clean && npm run build && npm test"
+    "patch-release": "npm version patch && npm publish && git push --follow-tags",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
