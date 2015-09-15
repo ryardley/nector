@@ -1,13 +1,14 @@
 import url from 'url';
 import createClient from './createClient';
 import express from 'express';
+import extend from 'extend';
 
 export default function createServer(store, endpoint){
 
   const app = express();
 
   // provide store so that we can use this as a location
-  app._store = Object.assign({}, store, {endpoint});
+  app._store = extend({}, store, {endpoint});
 
   app.use(`${endpoint}/:key`, (req, res) => {
     const key = req.params.key;
