@@ -1,8 +1,10 @@
 import url from 'url';
 import createClient from './createClient';
-export default function createServer(store, connect, endpoint){
+import express from 'express';
 
-  const app = connect;
+export default function createServer(store, endpoint){
+
+  const app = express();
 
   // provide store so that we can use this as a location
   app._store = Object.assign({}, store, {endpoint});

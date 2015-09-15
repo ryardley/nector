@@ -6,8 +6,8 @@ export default function createNector(endpoint, httpBackend){
 
   return {
     endpoint,
-    createServer(store, connect){
-      return createServer(store, connect, endpoint);
+    createServer(store){
+      return createServer(store, endpoint);
     },
     createClient(loc){
       return createClient(loc, endpoint, httpBackend);

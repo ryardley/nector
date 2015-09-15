@@ -1,8 +1,7 @@
-import {createNector} from '..';
+import {createNector} from '../src';
 import {expect} from 'chai';
 import {check} from './helpers';
 import request from 'supertest';
-import express from 'express';
 
 describe('nector', () => {
   let nector, server, localClient, remoteClient;
@@ -30,7 +29,7 @@ describe('nector', () => {
           resolve(`${args}`);
         });
       }
-    }, express());
+    });
     localClient = nector.createClient(server);
     remoteClient = nector.createClient('http://localhost');
   });
