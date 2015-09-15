@@ -1,6 +1,6 @@
 {
   "name": "nector",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Functional transport layer for isomorphic apps",
   "main": "dist/index.js",
   "scripts": {
@@ -9,7 +9,6 @@
     "clean": "rm -rf ./dist/*",
     "version": "npm run clean && npm run build && npm test && npm version patch -m 'Upgrade to version %s'",
     "publish": "npm publish ."
-
   },
   "repository": {
     "type": "git",
