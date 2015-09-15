@@ -7,7 +7,7 @@
     "test": "mocha --compilers js:babel/register",
     "build": "babel ./index.js --out-file ./dist/index.js",
     "clean": "rm -rf ./dist/*",
-    "version": "npm run clean && npm run build && npm test && npm version patch -m 'Upgrade to version %s'"
+    "version": "npm run clean && npm run build && npm test && npm version patch -m 'Upgrade to version %s' && git push --tags"
   },
   "repository": {
     "type": "git",
