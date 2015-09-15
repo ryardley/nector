@@ -54,7 +54,7 @@ Within your client code create a remote client and call a method.
 ```js
 const nector = createNector('/nector'); // pass in endpoint
 
-const remoteClient = nector.createClient('http://localhost'); // pass in full location of your server
+const remoteClient = nector.createClient('http://localhost'); // pass in full location of your server or nothing and the client will use the window.location.origin
 const sayHello = remoteClient('sayHello'); // Pass in the name of the remote method you wish to call
 
 sayHello('World')
@@ -65,9 +65,11 @@ sayHello('World')
 
 ## NOTE: Mock express dependency for your clientside code
 
+Nector depends on express to run it's endpoint server. If you want to create a client within webpack you should mock out this dependency to ensure it is isomorphic. 
+
 If you want to make clients that bypass the http transport layer you will need to mock express as part of your browserify or webpack build process
 
-Here is an example webpack config where 
+Here is an example webpack config:
 
 ```js
   //...
@@ -80,8 +82,4 @@ Here is an example webpack config where
   //...
 ```
 
-
-
-
-
-
+I am looking for better ways to do this and would love to hear some suggestions but for now this is a reasonable solution to get you going.
