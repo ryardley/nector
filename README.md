@@ -63,6 +63,23 @@ sayHello('World')
   });
 ```
 
+## NOTE: Mock express dependency for your clientside code
+
+If you want to make clients that bypass the http transport layer you will need to mock express as part of your browserify or webpack build process
+
+Here is an example webpack config where 
+
+```js
+  //...
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+    alias: {
+      express: path.resolve(__dirname, 'src', 'client', 'express')
+    }
+  },
+  //...
+```
+
 
 
 
