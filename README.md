@@ -16,7 +16,7 @@ To use nector you need an express or connect driven node app with some clientsid
 
 Add nector to your project
 
-```js
+```bash
 $ npm install nector --save
 ```
 
