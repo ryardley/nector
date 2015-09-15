@@ -1,13 +1,13 @@
 {
   "name": "nector",
-  "version": "0.1.3",
+  "version": "0.1.2",
   "description": "Functional transport layer for isomorphic apps",
   "main": "dist/index.js",
   "scripts": {
     "test": "mocha --compilers js:babel/register",
     "build": "babel ./src --out-dir ./dist",
     "clean": "rm -rf ./dist",
-    "version": "npm run clean && npm run build && npm test && git add -A && git commit -m 'ready for version patch' && npm version patch -m 'Upgrade to version %s' && git push --tags"
+    "version": "npm run clean && npm run build && npm test && git add -A && git commit -m 'ready for version patch' && npm version patch && git push --tags"
   },
   "repository": {
     "type": "git",
