@@ -5,8 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "mocha --compilers js:babel/register",
-    "lint": "eslint .; true",
-    "build": "babel ./index.js --out-file ./dist/index.js"
+    "build": "babel ./index.js --out-file ./dist/index.js",
+    "clean": "rm -rf ./dist/*",
+    "publish": "npm run clean && npm run build && npm test && npm version patch -m 'Upgrade to version %s'"
   },
   "repository": {
     "type": "git",
