@@ -2,15 +2,27 @@ import {createNector} from '..';
 import {expect} from 'chai';
 import {check} from './helpers';
 import request from 'supertest';
+import express from 'express';
 
 describe('nector', () => {
   let nector, server, localClient, remoteClient;
+
   beforeEach(()=>{
+
     const mockBackend = () => {
-      return new Promise((res) => {
-        res('Return via HTTP.');
+      return new Promise((resolve) => {
+        const mockRequest = {
+          json: () => {
+            return new Promise((res) => {
+              res('Return via HTTP.');
+            });
+          }
+        };
+        resolve(mockRequest);
       });
+
     };
+
     nector = createNector('/hello', mockBackend);
     server = nector.createServer({
       myService(...args){
@@ -18,7 +30,7 @@ describe('nector', () => {
           resolve(`${args}`);
         });
       }
-    });
+    }, express());
     localClient = nector.createClient(server);
     remoteClient = nector.createClient('http://localhost');
   });
@@ -39,7 +51,7 @@ describe('nector', () => {
 
   it('should create local client', (done) => {
 
-    expect(server.store.endpoint).to.equal('/hello');
+    expect(server._store.endpoint).to.equal('/hello');
     expect(server.use).to.be.a('function');
 
     localClient('myService')(1,2,3)
