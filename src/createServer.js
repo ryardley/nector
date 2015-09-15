@@ -3,7 +3,7 @@ import createClient from './createClient';
 import express from 'express';
 import extend from 'extend';
 
-export default function createServer(store, endpoint){
+export default function createServer(nectar, store, endpoint){
 
   const app = express();
 
@@ -15,7 +15,7 @@ export default function createServer(store, endpoint){
     const urlParts = url.parse(req.url, true);
     const json = urlParts.query && urlParts.query.args;
     const args = (json && JSON.parse(json)) || [];
-    const localClient = createClient(app);
+    const localClient = createClient({servers:[app]}, app);
     localClient(key)(...args)
       .then((data) => {
         res.send(data);

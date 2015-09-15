@@ -3,7 +3,7 @@ import fetch from 'isomorphic-fetch';
 const HTTP = 'HTTP';
 const SERVER = 'SERVER';
 
-export function createTransport(loc, endpoint, httpBackend){
+export function createTransport(nectar, loc, endpoint, httpBackend){
   const type = (typeof loc === 'string') ? HTTP : SERVER;
   switch(type){
   case HTTP:

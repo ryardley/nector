@@ -6,11 +6,14 @@ export default function createNector(endpoint, httpBackend){
 
   return {
     endpoint,
+    servers:[],
     createServer(store){
-      return createServer(store, endpoint);
+      const srv = createServer(this, store, endpoint);
+      this.servers.push(srv);
+      return srv;
     },
     createClient(loc){
-      return createClient(loc, endpoint, httpBackend);
+      return createClient(this, loc, endpoint, httpBackend);
     }
   };
 }
