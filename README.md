@@ -2,7 +2,7 @@
 
 A promise driven functional transport layer for isomorphic apps.
 
-_* please note API's are in flux here and will change as the project develops_
+_* please note API's are in flux here and will change as the project develops. You may find certain versions are broken until this disclaimer is removed I would probably wait until using this._
 
 ### What is Nector
 
